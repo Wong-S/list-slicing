@@ -15,8 +15,11 @@ def custom_len(input_list):
         8
 
     """
+    count = 0
+    for i in input_list:
+        count += 1
 
-    return 0
+    return count
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -43,7 +46,7 @@ def custom_append(input_list, value):
         True
 
     """
-
+    # input_list[:] = value
     pass
 
 
@@ -62,6 +65,9 @@ def custom_extend(input_list, second_list):
         True
 
     """
+
+    second_list[:0] = input_list[0:]
+    input_list[0:] = second_list
 
     pass
 
@@ -214,9 +220,10 @@ def custom_equality(some_list, another_list):
 
 # This is the part were we actually run the doctests.
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
 
     result = doctest.testmod()
     if result.failed == 0:
-        print('ALL TESTS PASSED')
+        print("ALL TESTS PASSED")
+
